@@ -10,7 +10,7 @@ const Header = () => {
           </div>
 
           <form className="d-flex mx-auto w-50">
-            <input className="form-control" type="search" placeholder="Search" />
+            <input class="form-control" type="search" placeholder="Search" />
           </form>
 
           <div className="d-flex align-items-center gap-3">
