@@ -2,14 +2,19 @@ import { Link } from "react-router-dom";
 import useFetch from "../useFetch.jsx";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import { useContext } from "react";
+import CartContext from "../useContext/Cart.jsx";
 
 const ProductListing = () => {
   const { data, loading, error } = useFetch(
     "http://localhost:3001/api/products",
   );
 
+  const { addToCart }   = useContext(CartContext)
+
   const productLength = data?.data?.length;
 
+  if(error) <p>{error.message}</p>
   return (
     <>
       <Header />
@@ -28,7 +33,7 @@ const ProductListing = () => {
         <div className="d-flex flex-row flex-wrap gap-5">
           {data?.data?.map((product) => (
             <>
-              <div
+              <div key={product._id}
                 className="card d-flex align-items-center justify-content-center"
                 style={{ width: "18rem" }}
               >
@@ -40,7 +45,7 @@ const ProductListing = () => {
                 <div className="card-body text-center">
                   <h5 className="card-text">{product.productName}</h5>
                   <h6>${product.productPrice}</h6>
-                  <Link to={`/`} className="btn btn-primary px-5 mx-3 mb-4">
+                  <Link to={`/cart`} onClick={() => addToCart(product)} className="btn btn-primary px-5 mx-3 mb-4">
                     Go to Cart
                   </Link>
                   <Link
