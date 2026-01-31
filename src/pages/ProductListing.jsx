@@ -53,7 +53,7 @@ const ProductListing = () => {
         )}
 
         <div className="d-flex" style={{ minHeight: '80vh'}}>
-          <div className="d-flex flex-column bg-secondary-subtle p-3" style={{ minWidth: "240px", minHeight: '80vh'}}>
+          <div className="d-flex flex-column bg-secondary-subtle p-3" style={{ minWidth: "240px", maxHeight: '90vh'}}>
             <h4><b>Filter Products</b></h4><br />
             <div>
               <label htmlFor="price"><h5>Price: </h5></label><br />
