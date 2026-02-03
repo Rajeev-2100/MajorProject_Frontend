@@ -17,7 +17,7 @@ const Header = () => {
 
           <div className="d-flex align-items-center gap-3">
             <button className="btn btn-secondary">Login</button>
-            <i className="bi bi-heart fs-5"></i>
+            <Link to={`/wishList`}><i className="bi bi-heart fs-5 text-danger"></i></Link>
             <Link to={`/cart`} style={{ textDecoration: 'none', color: '#000'}}><h6><i className="b bi-cart fs-5"></i>Cart</h6></Link>
           </div>
         </nav>

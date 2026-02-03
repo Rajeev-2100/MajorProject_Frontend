@@ -15,7 +15,9 @@ const ProductListing = () => {
     "http://localhost:3001/api/products",
   );
 
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, addToWishList } = useContext(CartContext);
+  // console.log('Wish list: ',addToWishList);
+  
 
   const productData = data?.data ? data?.data : [];
 
@@ -206,7 +208,7 @@ const ProductListing = () => {
                     style={{ width: "18rem" }}
                   >
                     <div className="card d-flex align-items-center justify-content-center" style={{ width: "18rem" }}>
-                      <i className="card-img-overlay bi bi-heart-fill text-danger fs-3"></i>
+                      <i className="card-img-overlay bi bi-heart-fill text-danger fs-3" onClick={() => addToWishList(product)}></i>
                       <img
                         src={product.productImage}
                         className="img-fluid card-img h-100 object-fit-cover card-img-top"

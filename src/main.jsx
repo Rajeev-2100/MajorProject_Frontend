@@ -5,6 +5,7 @@ import ProductListing from './pages/ProductListing.jsx'
 import ProductDetail from './pages/ProductDetail.jsx'
 import { CartProvider } from './useContext/Cart.jsx';
 import Cart from './pages/Cart.jsx';
+import WishListPage from './pages/WishListPage.jsx';
 
 
 createRoot(document.getElementById('root')).render(
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/productPage" element={<ProductListing/>} />
           <Route path="/productPage/:productId" element={<ProductDetail/>} />
           <Route path='/cart' element={<Cart/>} />
+          <Route path='/wishList' element={<WishListPage/>} />
         </Routes>
     </Router>
   </CartProvider>,
