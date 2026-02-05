@@ -14,18 +14,16 @@ const ProductListing = () => {
   const { data, loading, error } = useFetch(
     "http://localhost:3001/api/products",
   );
-
-  const { addToCart, addToWishList } = useContext(CartContext);
-  // console.log('Wish list: ',addToWishList);
   
-
   const productData = data?.data ? data?.data : [];
+  
+  const { addToCart, addToWishList } = useContext(CartContext);  
 
   const filteredProducts = productData?.filter((product) => {
+    
     const priceMatch = price ? product.productPrice <= price : true;
-    const categoryMatch = category ? product.category === category : true;
+    const categoryMatch = category ? category === product.categoryField.category : true;
     const ratingMatch = rating ? product.rating >= rating : true;
-
     return priceMatch && categoryMatch && ratingMatch;
   });
 
@@ -39,7 +37,6 @@ const ProductListing = () => {
     return 0;
   });
 
-  // console.log(SortByProduct)
   if (error) <p>{error.message}</p>;
 
   return (
@@ -101,21 +98,21 @@ const ProductListing = () => {
               <br />
               <input
                 type="checkbox"
-                onChange={() => setCategory("Men")}
-                name="category"
+                onChange={(e) => setCategory(e.target.checked ? 'Men' : "")}
+                checked={category === "Men"}
                 id=""
                 value="Men"
               />{" "}
-              Men
+              Women
               <br />
               <input
                 type="checkbox"
-                onChange={() => setCategory("Women")}
-                name="category"
+                onChange={(e) => setCategory(e.target.checked ? 'Women' : "")}
+                checked={category === 'Women'}
                 id=""
                 value="Women"
               />{" "}
-              Women
+              Men
               <br />
               <br />
             </div>
