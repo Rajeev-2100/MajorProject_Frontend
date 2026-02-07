@@ -6,7 +6,7 @@ import ProductDetail from './pages/ProductDetail.jsx'
 import { CartProvider } from './useContext/Cart.jsx';
 import Cart from './pages/Cart.jsx';
 import WishListPage from './pages/WishListPage.jsx';
-
+import UserProfile from './pages/UserProfile.jsx'
 
 createRoot(document.getElementById('root')).render(
   <CartProvider>
@@ -17,6 +17,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/productPage/:productId" element={<ProductDetail/>} />
           <Route path='/cart' element={<Cart/>} />
           <Route path='/wishList' element={<WishListPage/>} />
+          <Route path='/userProfile' element={<UserProfile/>} />
         </Routes>
     </Router>
   </CartProvider>,

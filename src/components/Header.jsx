@@ -6,7 +6,7 @@ const Header = () => {
       <header className="bg-body-tertiary ">
         <nav className="navbar navbar-expand-lg container d-flex justify-content-between align-items-center">
           <div className="">
-            <a className="navbar-brand fw-bold" href="#">
+            <a className="navbar-brand fw-bold" href="/">
               MyShoppingSite
             </a>
           </div>
@@ -25,5 +25,5 @@ const Header = () => {
     </>
   );
 };
-
+9
 export default Header;
